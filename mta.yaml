@@ -1,0 +1,93 @@
+_schema-version: "3.2"
+ID: calculequimta
+description: Fiori elements app
+version: 0.0.1
+modules:
+- name: calculequimta-dest-content
+  type: com.sap.application.content
+  requires:
+  - name: calculequimta-destination-service
+    parameters:
+      content-target: true
+  - name: calculequimta-repo-host
+    parameters:
+      service-key:
+        name: calculequimta-repo-host-key
+  - name: calculequimta-uaa
+    parameters:
+      service-key:
+        name: calculequimta-uaa-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: calculequimta_repo_host
+          ServiceInstanceName: calculequimta-html5-srv
+          ServiceKeyName: calculequimta-repo-host-key
+          sap.cloud.service: calculequimta
+        - Authentication: OAuth2UserTokenExchange
+          Name: calculequimta_uaa
+          ServiceInstanceName: calculequimta-xsuaa-srv
+          ServiceKeyName: calculequimta-uaa-key
+          sap.cloud.service: calculequimta
+        existing_destinations_policy: update
+  build-parameters:
+    no-source: true
+- name: calculequimta-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: calculequimta-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - calculequiui.zip
+      name: calculequiui
+      target-path: resources/
+- name: calculequiui
+  type: html5
+  path: calculequiui
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: calculequimta-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: calculequimta-xsuaa-srv
+    service-plan: application
+- name: calculequimta-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: calculequimta-destination-service
+    service-plan: lite
+- name: calculequimta-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: calculequimta-html5-srv
+    service-plan: app-host
+parameters:
+  deploy_mode: html5-repo

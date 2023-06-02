@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="CatalogService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Societe" EntityType="CatalogService.Societe"/>
+                <EntitySet Name="EquipementUf" EntityType="CatalogService.EquipementUf"/>
+                <EntitySet Name="LotCf" EntityType="CatalogService.LotCf"/>
+                <EntitySet Name="Traite" EntityType="CatalogService.Traite"/>
+                <EntitySet Name="PeriodeContr" EntityType="CatalogService.PeriodeContr"/>
+                <EntitySet Name="MfEf" EntityType="CatalogService.MfEf"/>
+                <EntitySet Name="EquipementUfCalculated" EntityType="CatalogService.EquipementUfCalculated"/>
+            </EntityContainer>
+            <EntityType Name="Societe">
+                <Key>
+                    <PropertyRef Name="societe"/>
+                </Key>
+                <Property Name="societe" Type="Edm.String" MaxLength="2" Nullable="false"/>
+                <Property Name="sonom" Type="Edm.String" MaxLength="50"/>
+                <Property Name="sonbrmdft" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="EquipementUf">
+                <Key>
+                    <PropertyRef Name="idut"/>
+                    <PropertyRef Name="utident"/>
+                    <PropertyRef Name="ufident"/>
+                </Key>
+                <Property Name="idut" Type="Edm.String" MaxLength="15" Nullable="false"/>
+                <Property Name="utident" Type="Edm.String" MaxLength="6" Nullable="false"/>
+                <Property Name="ufident" Type="Edm.String" MaxLength="2" Nullable="false"/>
+                <Property Name="societe" Type="Edm.String" MaxLength="2"/>
+                <Property Name="crident" Type="Edm.String" MaxLength="2"/>
+                <Property Name="trident" Type="Edm.String" MaxLength="5"/>
+                <Property Name="ufvco" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="ukfvra" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="ufdatcre" Type="Edm.String" MaxLength="6"/>
+                <Property Name="ufpcdatdeb" Type="Edm.String" MaxLength="6"/>
+                <Property Name="ufpcdatfin" Type="Edm.String" MaxLength="6"/>
+                <Property Name="ufnat" Type="Edm.String" MaxLength="1"/>
+                <Property Name="ufreg2" Type="Edm.String" MaxLength="1"/>
+                <Property Name="ukfamt_1" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="ukfdot" Type="Edm.Decimal" Scale="2" Precision="12"/>
+            </EntityType>
+            <EntityType Name="LotCf">
+                <Property Name="idlo" Type="Edm.String" MaxLength="11"/>
+                <Property Name="societe" Type="Edm.String" MaxLength="2"/>
+                <Property Name="crident" Type="Edm.String" MaxLength="2"/>
+                <Property Name="trident" Type="Edm.String" MaxLength="5"/>
+                <Property Name="loident" Type="Edm.String" MaxLength="6"/>
+                <Property Name="cfident" Type="Edm.String" MaxLength="2"/>
+                <Property Name="cfvco" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="ckfvra" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="cfdatcre" Type="Edm.String" MaxLength="6"/>
+                <Property Name="cfpcdatdeb" Type="Edm.String" MaxLength="6"/>
+                <Property Name="cfpcdatfin" Type="Edm.String" MaxLength="6"/>
+                <Property Name="cfnat" Type="Edm.String" MaxLength="1"/>
+                <Property Name="cfreg2" Type="Edm.String" MaxLength="1"/>
+                <Property Name="ckfamt_1" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="ckfdot" Type="Edm.Decimal" Scale="2" Precision="12"/>
+            </EntityType>
+            <EntityType Name="Traite">
+                <Key>
+                    <PropertyRef Name="societe"/>
+                    <PropertyRef Name="crident"/>
+                    <PropertyRef Name="trident"/>
+                    <PropertyRef Name="trnumuti"/>
+                </Key>
+                <Property Name="societe" Type="Edm.String" MaxLength="2" Nullable="false"/>
+                <Property Name="crident" Type="Edm.String" MaxLength="2" Nullable="false"/>
+                <Property Name="trident" Type="Edm.String" MaxLength="5" Nullable="false"/>
+                <Property Name="trnumuti" Type="Edm.String" MaxLength="4" Nullable="false"/>
+                <Property Name="trsta" Type="Edm.String" MaxLength="1"/>
+                <Property Name="trnatact" Type="Edm.String" MaxLength="1"/>
+                <Property Name="trforjur" Type="Edm.String" MaxLength="1"/>
+                <Property Name="trnom" Type="Edm.String" MaxLength="50"/>
+                <Property Name="trnumsec" Type="Edm.String" MaxLength="2"/>
+                <Property Name="trexrcre" Type="Edm.String" MaxLength="4"/>
+                <Property Name="trnumrat" Type="Edm.String" MaxLength="5"/>
+                <Property Name="trdatfin" Type="Edm.String" MaxLength="6"/>
+                <Property Name="trexrfinfis" Type="Edm.String" MaxLength="4"/>
+                <Property Name="trexrfinnfs" Type="Edm.String" MaxLength="4"/>
+                <Property Name="trstatar" Type="Edm.String" MaxLength="1"/>
+                <Property Name="trstaclr" Type="Edm.String" MaxLength="1"/>
+                <Property Name="recoag" Type="Edm.String" MaxLength="6"/>
+                <Property Name="socorid" Type="Edm.String" MaxLength="2"/>
+                <Property Name="socorig" Type="Edm.String" MaxLength="2"/>
+            </EntityType>
+            <EntityType Name="PeriodeContr">
+                <Key>
+                    <PropertyRef Name="societe"/>
+                    <PropertyRef Name="crident"/>
+                    <PropertyRef Name="trident"/>
+                    <PropertyRef Name="pcident"/>
+                </Key>
+                <Property Name="societe" Type="Edm.String" MaxLength="2" Nullable="false"/>
+                <Property Name="crident" Type="Edm.String" MaxLength="2" Nullable="false"/>
+                <Property Name="trident" Type="Edm.String" MaxLength="5" Nullable="false"/>
+                <Property Name="pcident" Type="Edm.String" MaxLength="2" Nullable="false"/>
+                <Property Name="pcdateft" Type="Edm.String" MaxLength="8"/>
+                <Property Name="pcfge" Type="Edm.String" MaxLength="1"/>
+                <Property Name="pcdatdeb" Type="Edm.String" MaxLength="8"/>
+                <Property Name="pcdatfin" Type="Edm.String" MaxLength="8"/>
+            </EntityType>
+            <EntityType Name="MfEf">
+                <Property Name="idef" Type="Edm.String" MaxLength="13"/>
+                <Property Name="efnom" Type="Edm.String" MaxLength="50"/>
+                <Property Name="societe" Type="Edm.String" MaxLength="2"/>
+                <Property Name="crident" Type="Edm.String" MaxLength="2"/>
+                <Property Name="trident" Type="Edm.String" MaxLength="5"/>
+                <Property Name="efident" Type="Edm.String" MaxLength="11"/>
+                <Property Name="efvco" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="efvra" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="efdatcre" Type="Edm.String" MaxLength="6"/>
+                <Property Name="efpcdatdeb" Type="Edm.String" MaxLength="6"/>
+                <Property Name="efpcdatfin" Type="Edm.String" MaxLength="6"/>
+                <Property Name="efnat" Type="Edm.String" MaxLength="1"/>
+                <Property Name="efreg2" Type="Edm.String" MaxLength="1"/>
+                <Property Name="ekfamt_1" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="ekfdot" Type="Edm.Decimal" Scale="2" Precision="12"/>
+            </EntityType>
+            <EntityType Name="EquipementUfCalculated">
+                <Property Name="IDUT" Type="Edm.String" MaxLength="15"/>
+                <Property Name="UTNOM" Type="Edm.String" MaxLength="50"/>
+                <Property Name="SOCIETE" Type="Edm.String" MaxLength="2"/>
+                <Property Name="CRIDENT" Type="Edm.String" MaxLength="2"/>
+                <Property Name="TRIDENT" Type="Edm.String" MaxLength="5"/>
+                <Property Name="UTIDENT" Type="Edm.String" MaxLength="6"/>
+                <Property Name="UTNT" Type="Edm.String" MaxLength="2"/>
+                <Property Name="UTSTA" Type="Edm.String" MaxLength="1"/>
+                <Property Name="UTREN" Type="Edm.String" MaxLength="1"/>
+                <Property Name="UTSTACLR" Type="Edm.String" MaxLength="1"/>
+                <Property Name="UTNATCLR" Type="Edm.String" MaxLength="2"/>
+                <Property Name="UTEXRCLR" Type="Edm.String" MaxLength="4"/>
+                <Property Name="UTEXRFINTECH" Type="Edm.String" MaxLength="4"/>
+                <Property Name="UFIDENT" Type="Edm.String" MaxLength="2"/>
+                <Property Name="UFNAT" Type="Edm.String" MaxLength="1"/>
+                <Property Name="UFDATCRE" Type="Edm.String" MaxLength="6"/>
+                <Property Name="UFREG2" Type="Edm.String" MaxLength="1"/>
+                <Property Name="TRNUMUTI" Type="Edm.String" MaxLength="4"/>
+                <Property Name="TRSTA" Type="Edm.String" MaxLength="1"/>
+                <Property Name="TRDATFIN" Type="Edm.String" MaxLength="6"/>
+                <Property Name="UFPCDATDEB" Type="Edm.String" MaxLength="8"/>
+                <Property Name="UFPCDATFIN" Type="Edm.String" MaxLength="8"/>
+                <Property Name="XFPCDATDEB_AM" Type="Edm.String" MaxLength="6"/>
+                <Property Name="XFPCDATDEB_MM" Type="Edm.String" MaxLength="2"/>
+                <Property Name="SOEXR" Type="Edm.String" MaxLength="4"/>
+                <Property Name="UFVCO" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="UKFAMT_1" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="UKFVRA" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="UKFDOT" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="SONBRMDFT" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="UKFVRA_1" Type="Edm.Decimal" Scale="2" Precision="12"/>
+                <Property Name="UKFDOT_1" Type="Edm.Decimal" Scale="2" Precision="12"/>
+            </EntityType>
+            <Annotations Target="CatalogService.EntityContainer/EquipementUfCalculated">
+                <Annotation Term="Capabilities.DeleteRestrictions">
+                    <Record Type="Capabilities.DeleteRestrictionsType">
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.InsertRestrictions">
+                    <Record Type="Capabilities.InsertRestrictionsType">
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.UpdateRestrictions">
+                    <Record Type="Capabilities.UpdateRestrictionsType">
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/IDUT">
+                <Annotation Term="Common.Label" String="IDUT: IDUT"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UTNOM">
+                <Annotation Term="Common.Label" String="UTNOM: UTNOM"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/SOCIETE">
+                <Annotation Term="Common.Label" String="SOCIETE: SOCIETE"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/CRIDENT">
+                <Annotation Term="Common.Label" String="CRIDENT: CRIDENT"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/TRIDENT">
+                <Annotation Term="Common.Label" String="TRIDENT: TRIDENT"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UTIDENT">
+                <Annotation Term="Common.Label" String="UTIDENT: UTIDENT"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UTNT">
+                <Annotation Term="Common.Label" String="UTNT: UTNT"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UTSTA">
+                <Annotation Term="Common.Label" String="UTSTA: UTSTA"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UTREN">
+                <Annotation Term="Common.Label" String="UTREN: UTREN"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UTSTACLR">
+                <Annotation Term="Common.Label" String="UTSTACLR: UTSTACLR"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UTNATCLR">
+                <Annotation Term="Common.Label" String="UTNATCLR: UTNATCLR"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UTEXRCLR">
+                <Annotation Term="Common.Label" String="UTEXRCLR: UTEXRCLR"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UTEXRFINTECH">
+                <Annotation Term="Common.Label" String="UTEXRFINTECH: UTEXRFINTECH"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UFIDENT">
+                <Annotation Term="Common.Label" String="UFIDENT: UFIDENT"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UFNAT">
+                <Annotation Term="Common.Label" String="UFNAT: UFNAT"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UFDATCRE">
+                <Annotation Term="Common.Label" String="UFDATCRE: UFDATCRE"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UFREG2">
+                <Annotation Term="Common.Label" String="UFREG2: UFREG2"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/TRNUMUTI">
+                <Annotation Term="Common.Label" String="TRNUMUTI: TRNUMUTI"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/TRSTA">
+                <Annotation Term="Common.Label" String="TRSTA: TRSTA"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/TRDATFIN">
+                <Annotation Term="Common.Label" String="TRDATFIN: TRDATFIN"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UFPCDATDEB">
+                <Annotation Term="Common.Label" String="UFPCDATDEB: UFPCDATDEB"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UFPCDATFIN">
+                <Annotation Term="Common.Label" String="UFPCDATFIN: UFPCDATFIN"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/XFPCDATDEB_AM">
+                <Annotation Term="Common.Label" String="XFPCDATDEB_AM: XFPCDATDEB_AM"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/XFPCDATDEB_MM">
+                <Annotation Term="Common.Label" String="XFPCDATDEB_MM: XFPCDATDEB_MM"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/SOEXR">
+                <Annotation Term="Common.Label" String="SOEXR: SOEXR"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UFVCO">
+                <Annotation Term="Common.Label" String="UFVCO: UFVCO"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UKFAMT_1">
+                <Annotation Term="Common.Label" String="UKFAMT_1: UKFAMT_1"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UKFVRA">
+                <Annotation Term="Common.Label" String=" UKFVRA: UKFVRA"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UKFDOT">
+                <Annotation Term="Common.Label" String="UKFDOT: UKFDOT"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/SONBRMDFT">
+                <Annotation Term="Common.Label" String="SONBRMDFT: SONBRMDFT"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UKFVRA_1">
+                <Annotation Term="Common.Label" String="UKFVRA_1: UKFVRA_1"/>
+            </Annotations>
+            <Annotations Target="CatalogService.EquipementUfCalculated/UKFDOT_1">
+                <Annotation Term="Common.Label" String="UKFDOT_1: UKFDOT_1"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

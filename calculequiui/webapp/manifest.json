@@ -1,0 +1,182 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "calculequiui",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:worklist",
+            "version": "1.9.7",
+            "toolsId": "e7e6c123-e164-47e0-b942-2ad8dbe957cc"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/catalog/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "annotation"
+                    ],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "4.0"
+                }
+            },
+            "annotation": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation.xml",
+                "settings": {
+                    "localUri": "annotations/annotation.xml"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "calculequiui-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "calculequipement",
+                    "action": "display",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": "sap-icon://collections-management"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.114.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.fe.templates": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "calculequiui.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            }
+        },
+        "resources": {
+            "css": []
+        },
+        "routing": {
+            "routes": [
+                {
+                    "pattern": ":?query:",
+                    "name": "EquipementUfCalculatedList",
+                    "target": "EquipementUfCalculatedList"
+                },
+                {
+                    "pattern": "EquipementUfCalculated({key}):?query:",
+                    "name": "EquipementUfCalculatedObjectPage",
+                    "target": "EquipementUfCalculatedObjectPage"
+                }
+            ],
+            "targets": {
+                "EquipementUfCalculatedList": {
+                    "type": "Component",
+                    "id": "EquipementUfCalculatedList",
+                    "name": "sap.fe.templates.ListReport",
+                    "options": {
+                        "settings": {
+                            "entitySet": "EquipementUfCalculated",
+                            "variantManagement": "Page",
+                            "hideFilterBar": true,
+                            "navigation": {
+                                "EquipementUfCalculated": {
+                                    "detail": {
+                                        "route": "EquipementUfCalculatedObjectPage"
+                                    }
+                                }
+                            },
+                            "content": {
+                                "header": {
+                                    "actions": {
+                                        "A_sendAgora": {
+                                            "press": "calculequiui.ext.controller.SendAgoraHandler.sendAgoraMethod",
+                                            "visible": true,
+                                            "enabled": true,
+                                            "text": "{i18n>envoyerversagora}"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EquipementUfCalculatedObjectPage": {
+                    "type": "Component",
+                    "id": "EquipementUfCalculatedObjectPage",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "editableHeaderContent": false,
+                            "entitySet": "EquipementUfCalculated"
+                        }
+                    }
+                }
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {}
+            }
+        }
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "calculequimta"
+    }
+}
