@@ -12,18 +12,107 @@
                     <Collection>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="IDUT"/>
+                            <PropertyValue Property="Label" String="{@i18n>identifiantUtilisateurUt}"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="UTNOM"/>
+                            <PropertyValue Property="Label" String="{@i18n>libellUniteTechnique}"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="SOCIETE"/>
+                            <PropertyValue Property="Label" String="{@i18n>codeRegion}"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="CRIDENT"/>
+                            <PropertyValue Property="Label" String="{@i18n>codeCentre}"/>
                         </Record>
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="TRIDENT"/>
+                            <PropertyValue Property="Label" String="{@i18n>codeSystmeTraite}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UKFVRA_1"/>
+                            <PropertyValue Property="Label" String="{@i18n>valeurAAmortir}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SONBRMDFT"/>
+                            <PropertyValue Property="Label" String="{@i18n>nbMoisDeDecalage}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="TRNUMUTI"/>
+                            <PropertyValue Property="Label" String="{@i18n>numroTraite}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="TRSTA"/>
+                            <PropertyValue Property="Label" String="{@i18n>statutTraite}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UFDATCRE"/>
+                            <PropertyValue Property="Label" String="{@i18n>dateCreationElementUf}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UFIDENT"/>
+                            <PropertyValue Property="Label" String="{@i18n>sequence}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UFNAT"/>
+                            <PropertyValue Property="Label" String="{@i18n>natureElementUf}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UFREG2"/>
+                            <PropertyValue Property="Label" String="{@i18n>marquageUf}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UFVCO"/>
+                            <PropertyValue Property="Label" String="{@i18n>valeurBruteComptable}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UKFAMT_1"/>
+                            <PropertyValue Property="Label" String="{@i18n>cumulAfAvantDotation}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UKFDOT"/>
+                            <PropertyValue Property="Label" String="{@i18n>dotationAuxAmortissementsFinanciers}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UKFDOT_1"/>
+                            <PropertyValue Property="Label" String="{@i18n>dotationAuxAmortissementsFinanciers}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UKFVRA"/>
+                            <PropertyValue Property="Label" String="{@i18n>valeurAAmortir}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UTEXRCLR"/>
+                            <PropertyValue Property="Label" String="{@i18n>exerciceApparitionClauseDe}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UTEXRFINTECH"/>
+                            <PropertyValue Property="Label" String="{@i18n>exerciceDeFinTechnique}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UTIDENT"/>
+                            <PropertyValue Property="Label" String="{@i18n>codeSystmeUniteTechnique}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UTNATCLR"/>
+                            <PropertyValue Property="Label" String="{@i18n>natureActuelleDeLa}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UTNT"/>
+                            <PropertyValue Property="Label" String="{@i18n>natureIndustrielle}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UTREN"/>
+                            <PropertyValue Property="Label" String="{@i18n>infoSurRenouvellementAnterieur}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UTSTA"/>
+                            <PropertyValue Property="Label" String="{@i18n>statutInstallation}"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UTSTACLR"/>
+                            <PropertyValue Property="Label" String="{@i18n>clauseDeRachatSpecifique1}"/>
                         </Record>
                     </Collection>
                 </Annotation>
@@ -33,63 +122,83 @@
                             <Collection>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="IDUT"/>
+                                    <PropertyValue Property="Label" String="{@i18n>identifiantUtilisateurUt}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UTNOM"/>
+                                    <PropertyValue Property="Label" String="{@i18n>libellUniteTechnique}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="SOCIETE"/>
+                                    <PropertyValue Property="Label" String="{@i18n>codeRegion}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="CRIDENT"/>
+                                    <PropertyValue Property="Label" String="{@i18n>codeCentre}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="TRIDENT"/>
+                                    <PropertyValue Property="Label" String="{@i18n>codeSystmeTraite}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UTIDENT"/>
+                                    <PropertyValue Property="Label" String="{@i18n>codeSystmeUniteTechnique}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UTNT"/>
+                                    <PropertyValue Property="Label" String="{@i18n>natureIndustrielle}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UTSTA"/>
+                                    <PropertyValue Property="Label" String="{@i18n>statutInstallation}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UTREN"/>
+                                    <PropertyValue Property="Label" String="{@i18n>infoSurRenouvellementAnterieur}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UTSTACLR"/>
+                                    <PropertyValue Property="Label" String="{@i18n>clauseDeRachatSpecifique}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UTNATCLR"/>
+                                    <PropertyValue Property="Label" String="{@i18n>natureActuelleDeLa}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UTEXRCLR"/>
+                                    <PropertyValue Property="Label" String="{@i18n>exerciceApparitionClauseDe}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UTEXRFINTECH"/>
+                                    <PropertyValue Property="Label" String="{@i18n>exerciceDeFinTechnique}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UFIDENT"/>
+                                    <PropertyValue Property="Label" String="{@i18n>sequence}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UFNAT"/>
+                                    <PropertyValue Property="Label" String="{@i18n>natureDeLElement}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UFDATCRE"/>
+                                    <PropertyValue Property="Label" String="{@i18n>dateDeCreationDe}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UFREG2"/>
+                                    <PropertyValue Property="Label" String="{@i18n>marquageUf}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="TRNUMUTI"/>
+                                    <PropertyValue Property="Label" String="{@i18n>numroTraite}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="TRSTA"/>
+                                    <PropertyValue Property="Label" String="{@i18n>statutTraite}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="TRDATFIN"/>
+                                    <PropertyValue Property="Label" String="{@i18n>dateFinDeTraite}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UFPCDATDEB"/>
@@ -108,24 +217,31 @@
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UFVCO"/>
+                                    <PropertyValue Property="Label" String="{@i18n>valeurBruteComptable}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UKFAMT_1"/>
+                                    <PropertyValue Property="Label" String="{@i18n>cumulDesAmortissementsAvant}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UKFVRA"/>
+                                    <PropertyValue Property="Label" String="{@i18n>valeurAAmortir}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UKFDOT"/>
+                                    <PropertyValue Property="Label" String="{@i18n>dotationAuxAmortissementsFinanciers}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="SONBRMDFT"/>
+                                    <PropertyValue Property="Label" String="{@i18n>nbMoisDeDecalage}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UKFVRA_1"/>
+                                    <PropertyValue Property="Label" String="{@i18n>valeurAAmortir}"/>
                                 </Record>
                                 <Record Type="UI.DataField">
                                     <PropertyValue Property="Value" Path="UKFDOT_1"/>
+                                    <PropertyValue Property="Label" String="{@i18n>dotationAuxAmortissementsFinanciers}"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>

@@ -10,6 +10,13 @@
       "csrfProtection": false
     },
     {
+      "source": "^/iflowagora/(.*)$",
+      "target": "$1",
+      "destination": "iflowagora",
+      "authenticationType": "xsuaa",
+      "csrfProtection": false
+    },
+    {
       "source": "^/resources/(.*)$",
       "target": "/resources/$1",
       "authenticationType": "none",

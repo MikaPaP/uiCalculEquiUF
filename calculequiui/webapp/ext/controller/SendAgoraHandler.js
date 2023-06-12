@@ -5,7 +5,30 @@ sap.ui.define([
 
     return {
         sendAgoraMethod: function(oEvent) {
-            MessageToast.show("Custom handler invoked.");
+
+/*            var url = "./iflowagora/http/newijt/post";
+            var ajaxRequest = {};
+            ajaxRequest.url = url;
+            ajaxRequest.method = "POST";
+            ajaxRequest.headers = { "Content-Type": "application/json"};
+            jQuery.ajax(ajaxRequest);
+
+
+            */
+
+            $.ajax ({
+            url: "./iflowagora/http/newijt/post", 
+            type: "POST", 
+            data: "",
+            headers: {
+            "Content-Type": "application/son"
+        },
+            async: false
+
+        });
+
+        MessageToast.show("Envoyé vers Agora");
+
         }
     };
 });
